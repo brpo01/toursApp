@@ -10,6 +10,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const cookieParser = require('cookie-parser');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRouter');
@@ -49,7 +50,7 @@ app.use(
 
 app.use(helmet()); //setting security http headers
 app.use(express.json({ limit: '10kb' })); //body-parser for telling that the incoming request body is a JSON Object
-
+app.use(cookieParser());
 //Creating our own middlewares
 // app.use((req, res, next) => {
 //   console.log('HELLO from the middleware');
@@ -58,7 +59,7 @@ app.use(express.json({ limit: '10kb' })); //body-parser for telling that the inc
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  console.log(req.requestTime);
+  // console.log(req.cookies);
   next();
 });
 
