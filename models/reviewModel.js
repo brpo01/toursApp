@@ -50,7 +50,7 @@ reviewSchema.pre(/^find/, function (next) {
 
 //static method used to calcualte the avg rating, no. of ratings for a particular tour
 reviewSchema.statics.calcRatingAvg = async function (tourId) {
-  console.log(tourId);
+  // console.log(tourId);
   const stats = await this.aggregate([
     {
       $match: { tour: tourId },
