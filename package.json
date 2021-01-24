@@ -4,7 +4,8 @@
   "description": "Learning Node, Express",
   "main": "app.js",
   "scripts": {
-    "start": "NODE_ENV=development nodemon server.js",
+    "start": "NODE_ENV=development node server.js",
+    "dev": "NODE_ENV=development nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
@@ -47,5 +48,8 @@
     "eslint-plugin-react": "^7.20.3",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.0.5"
+  },
+  "engines": {
+    "node": "^10"
   }
 }
